@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messenger </title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: url('') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .chat-header {
+      background: #104e25;
+      color: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+    .chat-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 9px;
+      display: flex;
+      flex-direction: column;
+    }
+    .message {
+      max-width: 70%;
+      padding: 10px 14px;
+      border-radius: 18px;
+      margin: 4px 0;
+      font-size: 14px;
+      line-height: 1.4;
+      display: inline-block;
+    }
+    .sent {
+      background: #0084FF;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    .received {
+      background: #F1F0F0;
+      color: black;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+    .chat-input {
+      display: flex;
+      padding: 8px;
+      border-top: 1px solid #ccc;
+      background: white;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    .chat-input button {
+      margin-left: 8px;
+      background: #0084FF;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .timestamp {
+      font-size: 11px;
+      color: gray;
+      text-align: center;
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-header">booooo 🍅</div>
+  <div class="chat-container" id="chat-container">
+    <div class="message received">Hellooo ("this is what it looks like chatting with you")</div>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Aa">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    const chatContainer = document.getElementById("chat-container");
+    const userInput = document.getElementById("userInput");
+
+    const botReplies = [
+      "boooooo 🍅",
+      "DEDMA <3",
+      "AYOKO NAAA",
+      "boooooo 🍅",
+      "AYOKO NAAA",
+      "HAHAHHAHHHAHAHAHAHAHHAHAHAHAHA",
+      "OMGGGGG",
+      "i'm so sad :<",
+      "🍅🍅🍅🍅🍅",
+      "HAHAHAHAHHAHA i'll bang head in the wall",
+      "noo",
+      "noooooo",
+      "hayst buhay 🤡",
+      "AYOKOOOOOOO WAAAAA",
+      "😭😭😭 wala na ayoko naa",
+      "so sad ",
+      "boooooooo",
+      "LORDDDD HELP 😭",
+      "HAY NAKO BAHALA KAAAA"
+    ];
+
+    function sendMessage() {
+      const text = userInput.value.trim();
+      if (text === "") return;
+
+      // Add user message
+      addMessage(text, "sent");
+      userInput.value = "";
+
+      // Auto-scroll
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+      // Random bot reply after delay
+      setTimeout(() => {
+        const reply = botReplies[Math.floor(Math.random() * botReplies.length)];
+        addMessage(reply, "received");
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }, 1000);
+    }
+
+    function addMessage(text, type) {
+      const msg = document.createElement("div");
+      msg.classList.add("message", type);
+      msg.textContent = text;
+      chatContainer.appendChild(msg);
+    }
+  </script>
+</body>
+</html>

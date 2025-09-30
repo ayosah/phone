@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIC TAC TOE</title>
+<style>
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f2f2f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  h1 {
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 15px;
+  }
+
+  #modeSelect {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background: white;
+  }
+
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 12px;
+  }
+
+  .cell {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    font-weight: bold;
+    color: #007aff; /* iOS blue */
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .cell.taken {
+    cursor: not-allowed;
+  }
+
+  .cell.O {
+    color: #2caf32; /* iOS red */
+  }
+
+  #status {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    min-height: 24px;
+  }
+
+  #restart {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #007aff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    display: none;
+    transition: background 0.3s;
+  }
+
+  #restart:hover {
+    background: #005ecb;
+  }
+</style>
+</head>
+<body>
+  <h1>💚 Tic Tac Toe 🍅</h1>
+  <select id="modeSelect">
+    <option value="cpu">🍅 Kylie vs Javi💚</option>
+  </select>
+  <div id="board"></div>
+  <p id="status"></p>
+  <button id="restart">Play Again</button>
+
+<script>
+const board = document.getElementById("board");
+const statusEl = document.getElementById("status");
+const restartBtn = document.getElementById("restart");
+const modeSelect = document.getElementById("modeSelect");
+
+let currentPlayer = "";
+let gameActive = true;
+let cells = Array(9).fill(null);
+let mode = "cpu"; // default
+
+modeSelect.addEventListener("change", () => {
+  mode = modeSelect.value;
+  createBoard();
+});
+
+function createBoard() {
+  board.innerHTML = "";
+  cells.fill(null);
+  gameActive = true;
+  currentPlayer = "🍅";
+  statusEl.textContent = "Player Kylie's turn 🍅";
+  restartBtn.style.display = "none";
+
+  for (let i = 0; i < 9; i++) {
+    const cell = document.createElement("div");
+    cell.classList.add("cell");
+    cell.dataset.index = i;
+    cell.addEventListener("click", handleClick);
+    board.appendChild(cell);
+  }
+}
+
+function handleClick(e) {
+  const index = e.target.dataset.index;
+
+  if (!gameActive || cells[index]) return;
+
+  makeMove(index, currentPlayer);
+
+  if (checkEndGame()) return;
+
+  if (mode === "cpu" && currentPlayer === "💚" && gameActive) {
+    setTimeout(computerMove, 500); // small delay to simulate thinking
+  }
+}
+
+function makeMove(index, player) {
+  cells[index] = player;
+  const cellEl = board.querySelector(`[data-index='${index}']`);
+  cellEl.textContent = player;
+  cellEl.classList.add("taken", player);
+
+  if (checkWin(player)) {
+    statusEl.textContent = `${player} Wins!`;
+    gameActive = false;
+    restartBtn.style.display = "block";
+    return;
+  }
+
+  if (!cells.includes(null)) {
+    statusEl.textContent = "It's a Draw 🤝";
+    gameActive = false;
+    restartBtn.style.display = "block";
+    return;
+  }
+
+  currentPlayer = player === "🍅" ? "💚" : "🍅";
+  statusEl.textContent = mode === "cpu" && currentPlayer === "💚" 
+    ? "Player Javi's Turn 💚"
+    : `Player Kylie's Turn 🍅`;
+}
+
+function computerMove() {
+  // Pick a random empty cell
+  const emptyIndices = cells
+    .map((val, idx) => val === null ? idx : null)
+    .filter(val => val !== null);
+
+  if (emptyIndices.length === 0) return;
+
+  const randomIndex = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+  makeMove(randomIndex, "💚");
+}
+
+function checkWin(player) {
+  const winPatterns = [
+    [0,1,2], [3,4,5], [6,7,8], // rows
+    [0,3,6], [1,4,7], [2,5,8], // cols
+    [0,4,8], [2,4,6]           // diagonals
+  ];
+
+  return winPatterns.some(pattern =>
+    pattern.every(index => cells[index] === player)
+  );
+}
+
+function checkEndGame() {
+  if (!gameActive) return true;
+  return false;
+}
+
+restartBtn.addEventListener("click", createBoard);
+
+// Start the game
+createBoard();
+</script>
+</body>
+</html>

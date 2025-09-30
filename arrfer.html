@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javi Personal Twitter</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #fff;
+      color: #0f1419;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #e6ecf0;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .feed {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tweet {
+      display: flex;
+      padding: 12px;
+      border-bottom: 1px solid #e6ecf0;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .tweet-content {
+      flex: 1;
+    }
+
+    .tweet-header {
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .tweet-header span {
+      font-weight: normal;
+      color: gray;
+      margin-left: 6px;
+      font-size: 13px;
+    }
+
+    .tweet-text {
+      font-size: 15px;
+      margin: 4px 0;
+    }
+
+    .tweet-actions {
+      display: flex;
+      justify-content: space-between;
+      max-width: 280px;
+      margin-top: 6px;
+      font-size: 14px;
+      color: gray;
+    }
+
+    .tweet-actions span {
+      cursor: pointer;
+    }
+
+    /* Comment styling */
+    .comment {
+      display: flex;
+      margin-left: 58px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .comment .avatar {
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+    }
+
+    .comment-content {
+      background: #f7f9f9;
+      padding: 8px 12px;
+      border-radius: 12px;
+    }
+
+    .comment-header {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .comment-header span {
+      font-weight: normal;
+      color: gray;
+      margin-left: 4px;
+      font-size: 12px;
+    }
+
+    .comment-text {
+      font-size: 14px;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Javi's Inner Thougths Twitter</div>
+  <div class="feed">
+
+    <div class="tweet">
+      <img class="avatar" src="images/kuromi.png" alt="profile">
+      <div class="tweet-content">
+        <div class="tweet-header">
+          Kylie <span>@georgiepremium · 1h</span>
+        </div>
+        <div class="tweet-text">
+          we’re talking abt the seminar btw hahaha i didn’t get to ask a question sa speaker so siya na lang tinanong ko HAHAHAHHASHDHAHSHDHAS NAKAKAINIS ANG POGI NAKAKAINISSSSSS NAKAKAASAR no one ask me if nap-process ko pa yung mga sagot niya HAHFKJAHSDFKJASHD kasi HINDIII TEHH KINIKILIG LANG AKOOOO NAKAKAASAR
+        </div>
+        <div class="tweet-actions">
+          <span>💬 1</span><span>🔁 2</span><span>❤️ 3</span><span>📤</span>
+        </div>
+        <div class="comment">
+          <img class="avatar" src="images/aa.JPG" alt="profile">
+          <div class="comment-content">
+            <div class="comment-header">
+              Javi <span>@banan_aghhh · 45m</span>
+            </div>
+            <div class="comment-text">
+              Very nag papakilig naman this girl, the seminar is about mental health kasi, kylie doesn’t know nasisiraan na ko ng ulo sa kilig HAHAHAHAHAHAHAH T-T
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <img class="avatar" src="images/kuromi.png" alt="profile">
+      <div class="tweet-content">
+        <div class="tweet-header">
+          Kylie <span>@georgiepremium · 1h</span>
+        </div>
+        <div class="tweet-text">
+          Hindi ako tumatanggap ng thank you pre pakasalan mo ako
+        </div>
+        <div class="tweet-actions">
+          <span>💬 1</span><span>🔁 2</span><span>❤️ 14</span><span>📤</span>
+        </div>
+        <div class="comment">
+          <img class="avatar" src="images/aa.JPG" alt="profile">
+          <div class="comment-content">
+            <div class="comment-header">
+              Javi <span>@banan_aghhh · 45m</span>
+            </div>
+            <div class="comment-text">
+                AKO DINNNN HINDI NAG AACCEPT NG THANK YOU, “YES JAVIER I WILL MARRY YOU” YAN LANG INAACCEPT KO            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <img class="avatar" src="images/kuromi.png" alt="profile">
+      <div class="tweet-content">
+        <div class="tweet-header">
+          Kylie <span>@georgiepremium · 1h</span>
+        </div>
+        <div class="tweet-text">
+          Magpari ka na lang pre tamo tuwing may misa ka present ako araw araw kitang mumultuhin pag di tayo kinasal pag kami di kinasal ewan ko na lang Talaga
+        </div>
+        <div class="tweet-actions">
+          <span>💬 1</span><span>🔁 3</span><span>❤️ 12</span><span>📤</span>
+        </div>
+        <div class="comment">
+          <img class="avatar" src="images/aa.JPG" alt="profile">
+          <div class="comment-content">
+            <div class="comment-header">
+              Javi <span>@banan_aghhh · 45m</span>
+            </div>
+            <div class="comment-text">
+                Pag nag pari Talaga ako and kinasal ka sa iba hindi ko kayo babasbasan yung holy water ko galing sa kanal, tapos ang sasabihin ko “I may kiss the bride” magalit na asawa mo kung magalit            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tweet">
+      <img class="avatar" src="images/kuromi.png" alt="profile">
+      <div class="tweet-content">
+        <div class="tweet-header">
+          Kylie <span>@georgiepremium · 1h</span>
+        </div>
+        <div class="tweet-text">
+          Sana ma-propose na siya bukas (he’s literally in manila (we aren’t even together yet (we haven’t even graduated yet (what the fuck is wrong with me bro)))
+        </div>
+        <div class="tweet-actions">
+          <span>💬 1</span><span>🔁 3</span><span>❤️ 11</span><span>📤</span>
+        </div>
+        <div class="comment">
+          <img class="avatar" src="images/aa.JPG" alt="profile">
+          <div class="comment-content">
+            <div class="comment-header">
+              Javi <span>@banan_aghhh · 45m</span>
+            </div>
+            <div class="comment-text">
+                Ready na po ang paper rings, paper from exams, quizzes, and thesis manuscripts HAHAHAHAHAHAHA . I MISS YOU SAY YES NA PLEASEE             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div class="tweet">
+      <img class="avatar" src="images/kuromi.png" alt="profile">
+      <div class="tweet-content">
+        <div class="tweet-header">
+          Kylie <span>@georgiepremium · 1h</span>
+        </div>
+        <div class="tweet-text">
+          Sobrang mema hahahaha crush na crush ko nan ga siya : (</div>
+        <div class="tweet-actions">
+          <span>💬 1</span><span>🔁 3</span><span>❤️ 11</span><span>📤</span>
+        </div>
+        <div class="comment">
+          <img class="avatar" src="images/aa.JPG" alt="profile">
+          <div class="comment-content">
+            <div class="comment-header">
+              Javi <span>@banan_aghhh · 45m</span>
+            </div>
+            <div class="comment-text">
+                blehhh            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div class="tweet">
+      <img class="avatar" src="images/kuromi.png" alt="profile">
+      <div class="tweet-content">
+        <div class="tweet-header">
+          Kylie <span>@georgiepremium · 1h</span>
+        </div>
+        <div class="tweet-text">
+            Miss na miss ko na siya so much these exams are killing me GUSTO KO NA SIYA MAKITAAAAA PLEASE FREE MEEEEE</div>
+        <div class="tweet-actions">
+          <span>💬 1</span><span>🔁 3</span><span>❤️ 11</span><span>📤</span>
+        </div>
+        <div class="comment">
+          <img class="avatar" src="images/aa.JPG" alt="profile">
+          <div class="comment-content">
+            <div class="comment-header">
+              Javi <span>@banan_aghhh · 45m</span>
+            </div>
+            <div class="comment-text">
+                I MISS YOU MOREEE, next time I’ll leech na sayo di na ko aalis sa eyes mo :>            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div class="tweet">
+      <img class="avatar" src="images/kuromi.png" alt="profile">
+      <div class="tweet-content">
+        <div class="tweet-header">
+          Kylie <span>@georgiepremium · 1h</span>
+        </div>
+        <div class="tweet-text">
+           He’s such a nerd [ very loving, very affectionate] It’s a website btw HAHASHDAHSAJSAJKSD ang tagal ko raw kumain he got bored so he made a website where when u tap the screen fireworks pop up LIKE MY FAVORITE FLOWERS !!!! and then nag-pop photos ko at the end HAHHAAHDADAD NAKAKAASARRRR crush na crush ako
+      </div>
+        <div class="tweet-actions">
+          <span>💬 1</span><span>🔁 3</span><span>❤️ 11</span><span>📤</span>
+        </div>
+        <div class="comment">
+          <img class="avatar" src="images/aa.JPG" alt="profile">
+          <div class="comment-content">
+            <div class="comment-header">
+              Javi <span>@banan_aghhh · 45m</span>
+            </div>
+            <div class="comment-text">
+                HAHAHAHHAHAHAA idk if compliment pero may lovingly and affectionate so plus points <3, epic fail nga yung flowers T-T stress            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- Repeat more tweets with same images/kuromi.png avatar -->
+    
+  </div>
+</body>
+</html>
